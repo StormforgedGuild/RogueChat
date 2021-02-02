@@ -1,0 +1,5 @@
+## Interface: 11305
+## Title: RogueChat
+## Notes: Because... rogues
+RogueChat.lua
+RogueChat.xml
