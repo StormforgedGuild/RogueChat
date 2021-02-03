@@ -11,7 +11,7 @@
   </Frame>
 
   <Frame name="RogueChatUX" toplevel="true" enableMouse="true" movable="true" parent="UIParent">
-    <Size x="105" y="110"/>
+    <Size x="250" y="140"/>
     <Anchors>
       <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
     </Anchors>
@@ -23,7 +23,7 @@
     <Layers>
       <Layer level="ARTWORK">
         <Texture name="$parent_HeaderTexture" file="Interface\DialogFrame\UI-DialogBox-Header">
-          <Size x="190" y="64"/>
+          <Size x="300" y="64"/>
           <Anchors>
             <Anchor point="TOP">
               <Offset x="0" y="12"/>
@@ -32,7 +32,7 @@
         </Texture>
       </Layer>
       <Layer level="OVERLAY">
-        <FontString name="$parent_Title" inherits="GameFontNormal" text="#$#! Rogues">
+        <FontString name="$parent_Title" inherits="GameFontNormal" text="RogueChattinator 9000">
           <Anchors>
             <Anchor point="TOP">
               <Offset x="0" y="-2"/>
@@ -47,37 +47,92 @@
       <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
     </Scripts>
     <Frames>
-      <Button name="IDiedButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="I Died">
-        <Size x="80" y="20"/>
+      <Button name="TanksButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Tanks Suck">
+        <Size x="100" y="20"/>
         <Anchors>
           <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
-            <Offset x="0" y="-25"/>
+            <Offset x="-55" y="-25"/>
           </Anchor>
         </Anchors>
         <Scripts>
-         <OnClick>IDied();</OnClick>
+         <OnClick>TanksClick();</OnClick>
         </Scripts>
       </Button>
-      <Button name="YouDiedButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="You Died">
-        <Size x="80" y="20"/>
+      <Button name="HealersButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Healz Suck">
+        <Size x="100" y="20"/>
         <Anchors>
           <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
-            <Offset x="0" y="-50"/>
+            <Offset x="-55" y="-50"/>
           </Anchor>
         </Anchors>
         <Scripts>
-         <OnClick>YouDied();</OnClick>
+         <OnClick>HealsClick();</OnClick>
         </Scripts>
       </Button>      
-      <Button name="RandomButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Random">
-        <Size x="80" y="20"/>
+      <Button name="OtherClassesButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Others Suck">
+        <Size x="100" y="20"/>
         <Anchors>
           <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
-            <Offset x="0" y="-75"/>
+            <Offset x="-55" y="-75"/>
           </Anchor>
         </Anchors>
         <Scripts>
-         <OnClick>SendRandomMessage();</OnClick>
+         <OnClick>OtherClassesClick();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="WarsButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="I Hate Wars">
+        <Size x="100" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="-55" y="-100"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>WarsClick();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="SlowButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Hurry the F Up">
+        <Size x="100" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="55" y="-25"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>SlowClick();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="JosanButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Insult Josan">
+        <Size x="100" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="55" y="-50"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>JosanClick();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="WipeButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Just Wiped">
+        <Size x="100" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="55" y="-75"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>WipeClick();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="ParseButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Parse Talk">
+        <Size x="100" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="55" y="-100"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>ParseClick();</OnClick>
         </Scripts>
       </Button>      
     </Frames>

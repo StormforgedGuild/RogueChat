@@ -4,40 +4,82 @@ SLASH_RGC2 = "/rgc2"
 --init array of recently-sent message ids. empty at first (all zeroes)
 array_of_recent = {0,0,0}
 
-msg_lib = {}
-msg_lib[1] = "Is Sokka even wearing tank gear?"
-msg_lib[2] = "7 mins left on SF. Why do I even bother getting it?"
-msg_lib[3] = "ffs why do we STILL need to explain this fight?"
-msg_lib[4] = "Terrible tank positioning on that attempt"
-msg_lib[5] = "Our tanks can't seem to remember to face the boss away from the raid"
-msg_lib[6] = "omg I was at 20% health for like 10+ seconds and didn't get a single heal"
-msg_lib[7] = "There's more to tanking than damage mitigation, someone should tell them"
-msg_lib[8] = "I'm gonna log out until the next pull, save my buffs"
-msg_lib[9] = "Can we just pull already?"
-msg_lib[10] = "I've wasted so much gold on consumes tonight"
-msg_lib[11] = "WTF why is it so hard to keep sunders up?"
-msg_lib[12] = "Who moved the hunter out of my group?"
-msg_lib[13] = "Did the tanks have Salv on that one? I kept pulling aggro."
-msg_lib[14] = "I'm so tired of the warriors never taking gear."
-msg_lib[15] = "If bannana takes the dagger I'm gonna scream."
-msg_lib[16] = "Take it easy here boys, this fight doesn't count for your parse."
-msg_lib[17] = "Why do we even bring feral druids if we're gonna put them in the tank group?"
-msg_lib[18] = "Anyone got the live logs? I wanna blame someone."
-msg_lib[19] = "Look at those meters. Someone tell me why we even bring the casters."
-msg_lib[20] = "I don't know why we still do this strategy. The other strategy is so much better have you seen the videos?"
-msg_lib[21] = "I never get the right pally buffs."
-msg_lib[22] = "Astranis really fucked up that last pull."
-msg_lib[23] = "Lol look who parsed below Josan on that fight."
-msg_lib[24] = "Something something Josan fart."
-msg_lib[25] = "Josan you suck but you make us all feel better about ourselves so there's that."
-msg_lib[26] = "Probably Josan's fault?"
-msg_lib[27] = "How can we still be wiping on this boss after all this time?"
-msg_lib[28] = "Everyone except Josan, meet me in the non-Josan channel."
-msg_lib[29] = "Melee needs to learn to stack."
-msg_lib[30] = "Group them for cleave, for fucks sake"
-msg_lib[31] = "Do wars ever pummel?"
+--create the message arrays
+OtherClasses_lib = {}
+Heals_lib = {}
+Josan_lib = {}
+Parse_lib = {}
+Slow_lib = {}
+Tanks_lib = {}
+Wars_lib = {}
+Wipe_lib = {}
 
-number_of_messages = table.getn(msg_lib)
+OtherClasses_lib[1] = "Who moved the hunter out of my group?"
+OtherClasses_lib[2] = "Why do we even bring feral druids if we're gonna put them in the tank group?"
+OtherClasses_lib[3] = "I never get the right pally buffs."
+OtherClasses_lib[4] = "Astranis really fucked up that last pull."
+OtherClasses_lib[5] = "Look at those meters. Someone tell me why we even bring the casters."
+Heals_lib[1] = "omg I was at 20% health for like 10+ seconds and didn't get a single heal"
+Heals_lib[2] = "What's with the lack of heals tonight"
+Heals_lib[3] = "I don't even know what our healers were doing there"
+Josan_lib[1] = "Something something Josan fart."
+Josan_lib[2] = "Josan you suck but you make us all feel better about ourselves so there's that."
+Josan_lib[3] = "Josan you didn't do that right."
+Josan_lib[4] = "Everyone except Josan, meet me in the non-Josan channel."
+Parse_lib[1] = "Take it easy here boys, this fight doesn't count for your parse."
+Parse_lib[2] = "Lol look who parsed below Josan lol."
+Slow_lib[1] = "Can we just pull already?"
+Slow_lib[2] = "ffs why do we STILL need to explain this fight?"
+Slow_lib[3] = "I'm gonna log out until the next pull, save my buffs"
+Slow_lib[4] = "7 mins left on SF. Why do I even bother getting it?"
+Slow_lib[5] = "We should have these assignments set beforehand"
+Slow_lib[6] = "I don't know why we still do this strat. The other strat is better."
+Slow_lib[7] = "The healers STILL don't know this fight?"
+Tanks_lib[1] = "Is Sokka even wearing tank gear?"
+Tanks_lib[2] = "Terrible tank positioning on that attempt"
+Tanks_lib[3] = "Our tanks can't seem to remember to face the boss away from the raid"
+Tanks_lib[4] = "There's more to tanking than damage mitigation, someone should tell them"
+Tanks_lib[5] = "WTF why is it so hard to keep sunders up?"
+Tanks_lib[6] = "Did the tanks have Salv on that one? I kept pulling aggro."
+Tanks_lib[7] = "Group them for cleave, for fucks sake"
+Wars_lib[1] = "I'm so tired of the warriors never taking gear."
+Wars_lib[2] = "If banana takes the dagger I'm gonna scream."
+Wars_lib[3] = "Melee needs to learn to stack."
+Wars_lib[4] = "Do wars ever pummel?"
+Wipe_lib[1] = "Anyone got the live logs? I wanna blame someone."
+Wipe_lib[2] = "How can we still be wiping on this boss after all this time?"
+Wipe_lib[3] = "I've wasted so much gold on consumes tonight"
+
+
+OtherClasses_lib_size = table.getn(OtherClasses_lib)
+Heals_lib_size = table.getn(Heals_lib)
+Josan_lib_size = table.getn(Josan_lib)
+Parse_lib_size = table.getn(Parse_lib)
+Slow_lib_size = table.getn(Slow_lib)
+Tanks_lib_size = table.getn(Tanks_lib)
+Wars_lib_size = table.getn(Wars_lib)
+Wipe_lib_size = table.getn(Wipe_lib)
+
+prev_OtherClasses = 0
+prev_Heals = 0
+prev_Josan = 0
+prev_Parse = 0
+prev_Slow = 0
+prev_Tanks = 0
+prev_Wars = 0
+prev_Wipe = 0
+
+current_OtherClasses = 0
+current_Heals = 0
+current_Josan = 0
+current_Parse = 0
+current_Slow = 0
+current_Tanks = 0
+current_Wars = 0
+current_Wipe = 0
+
+
+--number_of_messages = table.getn(msg_lib)
 
 ChannelNum = GetChannelName("ebztest")
 GeneralChannelType = "PARTY"  -- Change to RAID after testing
@@ -83,16 +125,82 @@ function LoadRogueChat(frame)
     --frame:RegisterEvent("ADDON_LOADED");
     --frame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
 
-    RogueChatUX:Show();
+    --RogueChatUX:Show();
 
 end
 
-function IDied()
-    SendChatMessage("Don't sweat it folks, I know you'll keep me alive next time!" ,GeneralChannelType);
-    SendChatMessage("WTF is wrong with these healers!","CHANNEL","COMMON",ChannelNum);
+function OtherClassesClick()
+
+    if prev_OtherClasses == OtherClasses_lib_size then 
+        prev_OtherClasses = 0
+    end
+    current_OtherClasses = prev_OtherClasses +1
+    SendChatMessage(OtherClasses_lib[current_OtherClasses],"CHANNEL","COMMON",ChannelNum)
+    prev_OtherClasses = current_OtherClasses
 end
 
-function YouDied()
-    SendChatMessage("Damn man, sucks u died. Parse gonna be worse than Josan now.","CHANNEL","COMMON",ChannelNum);
+function TanksClick()
+
+    if prev_Tanks == Tanks_lib_size then 
+        prev_Tanks = 0
+    end
+    current_Tanks = prev_Tanks +1
+    SendChatMessage(Tanks_lib[current_Tanks],"CHANNEL","COMMON",ChannelNum)
+    prev_Tanks = current_Tanks
+end
+
+function HealsClick()
+
+    if prev_Heals == Heals_lib_size then 
+        prev_Heals = 0
+    end
+    current_Heals = prev_Heals +1
+    SendChatMessage(Heals_lib[current_Heals],"CHANNEL","COMMON",ChannelNum)
+    prev_Heals = current_Heals
+end
+
+function JosanClick()
+    if prev_Josan == Josan_lib_size then 
+        prev_Josan = 0
+    end
+    current_Josan = prev_Josan +1
+    SendChatMessage(Josan_lib[current_Josan],"CHANNEL","COMMON",ChannelNum)
+    prev_Josan = current_Josan
+end
+
+function ParseClick()
+    if prev_Parse == Parse_lib_size then 
+        prev_Parse = 0
+    end
+    current_Parse = prev_Parse +1
+    SendChatMessage(Parse_lib[current_Parse],"CHANNEL","COMMON",ChannelNum)
+    prev_Parse = current_Parse
+end
+
+function SlowClick()
+    if prev_Slow == Slow_lib_size then 
+        prev_Slow = 0
+    end
+    current_Slow = prev_Slow +1
+    SendChatMessage(Slow_lib[current_Slow],"CHANNEL","COMMON",ChannelNum)
+    prev_Slow = current_Slow
+end
+
+function WarsClick()
+    if prev_Wars == Wars_lib_size then 
+        prev_Wars = 0
+    end
+    current_Wars = prev_Wars +1
+    SendChatMessage(Wars_lib[current_Wars],"CHANNEL","COMMON",ChannelNum)
+    prev_Wars = current_Wars
+end
+
+function WipeClick()
+    if prev_Wipe == Wipe_lib_size then 
+        prev_Wipe = 0
+    end
+    current_Wipe = prev_Wipe +1
+    SendChatMessage(Wipe_lib[current_Wipe],"CHANNEL","COMMON",ChannelNum)
+    prev_Wipe = current_Wipe
 end
 
