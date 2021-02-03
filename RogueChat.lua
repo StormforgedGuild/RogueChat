@@ -39,26 +39,31 @@ msg_lib[31] = "Do wars ever pummel?"
 
 number_of_messages = table.getn(msg_lib)
 
-
+ChannelNum = GetChannelName("ebztest")
+GeneralChannelType = "PARTY"  -- Change to RAID after testing
 
 SlashCmdList["RGC"] = function(msg)
    --print("Hello World!")
    --SendChatMessage("hello fellow humans","SAY")
-   ChannelNum = GetChannelName("ebztest")
+
    --print(ChannelNum)
    --math.randomseed(os.time())
+   SendRandomMessage()
    
-   repeat
-      new_message_index = math.random(1,number_of_messages)
-   until is_not_recent(array_of_recent,new_message_index)
+end
 
-   array_of_recent[3] = array_of_recent[2]
-   array_of_recent[2] = array_of_recent[1]
-   array_of_recent[1] = new_message_index
+function SendRandomMessage()
 
+    repeat
+        new_message_index = math.random(1,number_of_messages)
+     until is_not_recent(array_of_recent,new_message_index)
+  
+     array_of_recent[3] = array_of_recent[2]
+     array_of_recent[2] = array_of_recent[1]
+     array_of_recent[1] = new_message_index
+  
+     SendChatMessage(msg_lib[new_message_index],"CHANNEL","COMMON",ChannelNum)
 
-
-   SendChatMessage(msg_lib[new_message_index],"CHANNEL","COMMON",ChannelNum)
 end
 
 function is_not_recent (recent_list, val)
@@ -77,7 +82,17 @@ function LoadRogueChat(frame)
     --Uncomment these if you bring back the event handler code
     --frame:RegisterEvent("ADDON_LOADED");
     --frame:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED");
-    --frame:RegisterEvent("MERCHANT_SHOW");
 
+    RogueChatUX:Show();
+
+end
+
+function IDied()
+    SendChatMessage("Don't sweat it folks, I know you'll keep me alive next time!" ,GeneralChannelType);
+    SendChatMessage("WTF is wrong with these healers!","CHANNEL","COMMON",ChannelNum);
+end
+
+function YouDied()
+    SendChatMessage("Damn man, sucks u died. Parse gonna be worse than Josan now.","CHANNEL","COMMON",ChannelNum);
 end
 

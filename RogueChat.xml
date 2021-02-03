@@ -9,4 +9,58 @@
     <OnEvent>HandleEvents(self, event, ...);</OnEvent>
    </Scripts>
   </Frame>
+
+  <Frame name="RogueChatUX" toplevel="true" enableMouse="true" movable="true" parent="UIParent">
+    <Size x="105" y="100"/>
+    <Anchors>
+      <Anchor point="CENTER" relativePoint="CENTER" relativeTo="$parent"/>
+    </Anchors>
+   <Backdrop edgeFile="Interface/Tooltips/UI-Tooltip-Border" tile="true">
+      <TileSize val="32"/>
+      <EdgeSize val="32"/>
+      <BackgroundInsets left="11" right="12" top="12" bottom="11"/>
+    </Backdrop>
+    <Scripts>
+      <OnLoad>self:RegisterForDrag("LeftButton");</OnLoad>
+      <OnDragStart>self:StartMoving();</OnDragStart>
+      <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+    </Scripts>
+    <Frames>
+      <Button name="IDiedButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="I Died">
+        <Size x="80" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="0" y="-15"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>IDied();</OnClick>
+        </Scripts>
+      </Button>
+      <Button name="YouDiedButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="You Died">
+        <Size x="80" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="0" y="-40"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>YouDied();</OnClick>
+        </Scripts>
+      </Button>      
+      <Button name="RandomButton" inherits="GameMenuButtonTemplate" virtual="true" hidden="false" text="Random">
+        <Size x="80" y="20"/>
+        <Anchors>
+          <Anchor point="TOP" relativePoint="TOP" relativeTo="$parent">
+            <Offset x="0" y="-65"/>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+         <OnClick>SendRandomMessage();</OnClick>
+        </Scripts>
+      </Button>      
+    </Frames>
+
+  </Frame>
+
 </Ui>
