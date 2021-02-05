@@ -50,7 +50,6 @@ Wipe_lib[1] = "Anyone got the live logs? I wanna blame someone."
 Wipe_lib[2] = "How can we still be wiping on this boss after all this time?"
 Wipe_lib[3] = "I've wasted so much gold on consumes tonight"
 
-
 OtherClasses_lib_size = table.getn(OtherClasses_lib)
 Heals_lib_size = table.getn(Heals_lib)
 Josan_lib_size = table.getn(Josan_lib)
@@ -78,10 +77,12 @@ current_Tanks = 0
 current_Wars = 0
 current_Wipe = 0
 
+messagio=""
+
 
 --number_of_messages = table.getn(msg_lib)
 
-ChannelNum = GetChannelName("ebztest")
+ChannelNum = GetChannelName("sbrogue")
 GeneralChannelType = "PARTY"  -- Change to RAID after testing
 
 SlashCmdList["RGC"] = function(msg)
@@ -135,7 +136,7 @@ function OtherClassesClick()
         prev_OtherClasses = 0
     end
     current_OtherClasses = prev_OtherClasses +1
-    SendChatMessage(OtherClasses_lib[current_OtherClasses],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(OtherClasses_lib[current_OtherClasses],"CHANNEL","COMMON",ChannelNum)
     prev_OtherClasses = current_OtherClasses
 end
 
@@ -145,7 +146,7 @@ function TanksClick()
         prev_Tanks = 0
     end
     current_Tanks = prev_Tanks +1
-    SendChatMessage(Tanks_lib[current_Tanks],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Tanks_lib[current_Tanks],"CHANNEL","COMMON",ChannelNum)
     prev_Tanks = current_Tanks
 end
 
@@ -155,7 +156,7 @@ function HealsClick()
         prev_Heals = 0
     end
     current_Heals = prev_Heals +1
-    SendChatMessage(Heals_lib[current_Heals],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Heals_lib[current_Heals],"CHANNEL","COMMON",ChannelNum)
     prev_Heals = current_Heals
 end
 
@@ -164,7 +165,7 @@ function JosanClick()
         prev_Josan = 0
     end
     current_Josan = prev_Josan +1
-    SendChatMessage(Josan_lib[current_Josan],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Josan_lib[current_Josan],"CHANNEL","COMMON",ChannelNum)
     prev_Josan = current_Josan
 end
 
@@ -173,7 +174,7 @@ function ParseClick()
         prev_Parse = 0
     end
     current_Parse = prev_Parse +1
-    SendChatMessage(Parse_lib[current_Parse],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Parse_lib[current_Parse],"CHANNEL","COMMON",ChannelNum)
     prev_Parse = current_Parse
 end
 
@@ -182,7 +183,7 @@ function SlowClick()
         prev_Slow = 0
     end
     current_Slow = prev_Slow +1
-    SendChatMessage(Slow_lib[current_Slow],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Slow_lib[current_Slow],"CHANNEL","COMMON",ChannelNum)
     prev_Slow = current_Slow
 end
 
@@ -191,7 +192,7 @@ function WarsClick()
         prev_Wars = 0
     end
     current_Wars = prev_Wars +1
-    SendChatMessage(Wars_lib[current_Wars],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Wars_lib[current_Wars],"CHANNEL","COMMON",ChannelNum)
     prev_Wars = current_Wars
 end
 
@@ -200,7 +201,12 @@ function WipeClick()
         prev_Wipe = 0
     end
     current_Wipe = prev_Wipe +1
-    SendChatMessage(Wipe_lib[current_Wipe],"CHANNEL","COMMON",ChannelNum)
+    SendMessageWithPrefix(Wipe_lib[current_Wipe],"CHANNEL","COMMON",ChannelNum)
     prev_Wipe = current_Wipe
 end
+
+function SendMessageWithPrefix(messagio, type1, lang, channelnum)
+    SendChatMessage("RG9K: " .. messagio,"CHANNEL","COMMON",ChannelNum)
+end
+
 
