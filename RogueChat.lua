@@ -82,7 +82,7 @@ messagio=""
 
 --number_of_messages = table.getn(msg_lib)
 
-ChannelNum = GetChannelName("sbrogue")
+ChannelNum = GetChannelName("ebztest")
 GeneralChannelType = "PARTY"  -- Change to RAID after testing
 
 SlashCmdList["RGC"] = function(msg)
